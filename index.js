@@ -30,7 +30,7 @@ app.get("/notes", (req, res) => {
 // find comment
 app.get("/notes/:id", (req, res) => {
     const id = parseInt(req.params.id);
-    const notes = getComments();
+    const notes = getNotes();
     const note = notes.find((note) => note.id === id);
     res.send(note);
 });

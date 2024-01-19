@@ -8,5 +8,53 @@
 }
 
 body {
-        font-family: 'Noto Sans', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
+    color:black;
+}
+
+.container{
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+.site-title{
+    text-align: center;
+    font-size: 32px;
+    padding-bottom: 50px;
+    font-weight: 500;
+}
+
+#notes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+}
+
+.note-div{
+    border: 1px solid black;
+    padding: 5px;
+    width: 400px;
+    border-radius: 7px;
+}
+
+.header-note-div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.note-title{
+    width: 347px;
+    letter-spacing: 0.1px;
+    font-size: 18px;
+    font-weight: 500;
+    text-indent: 10px;
+    text-align: justify;
+    word-wrap: break-word;
+}
+
+.note-text{
+    margin-top: 10px;
+    text-align: justify;
 }

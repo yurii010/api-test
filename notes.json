@@ -1,53 +1,17 @@
 [
     {
-      "id": 1,
-      "title": "Заголовок 1",
-      "text": "Текст записки 1"
+        "id": 1,
+        "title": "Мустафа денис згамав маршмелоу вчора зранку, сказав дуже смачно.",
+        "text": "Ad velit dolore pariatur officia anim incididunt aute excepteur veniam id ad. Ad culpa magna reprehenderit consequat. Cupidatat commodo consequat cillum consectetur veniam. Esse Lorem in adipisicing nisi."
     },
     {
-      "id": 2,
-      "title": "Заголовок 2",
-      "text": "Текст записки 2"
+        "id": 2,
+        "title": "Заголовок 2",
+        "text": "Текст записки 2"
     },
     {
-      "id": 3,
-      "title": "Заголовок 3",
-      "text": "Текст записки 3"
-    },
-    {
-      "id": 4,
-      "title": "Заголовок 4",
-      "text": "Текст записки 4"
-    },
-    {
-      "id": 5,
-      "title": "Заголовок 5",
-      "text": "Текст записки 5"
-    },
-    {
-      "id": 6,
-      "title": "Заголовок 6",
-      "text": "Текст записки 6"
-    },
-    {
-      "id": 7,
-      "title": "Заголовок 7",
-      "text": "Текст записки 7"
-    },
-    {
-      "id": 8,
-      "title": "Заголовок 8",
-      "text": "Текст записки 8"
-    },
-    {
-      "id": 9,
-      "title": "Заголовок 9",
-      "text": "Текст записки 9"
-    },
-    {
-      "id": 10,
-      "title": "Заголовок 10",
-      "text": "Текст записки 10"
+        "id": 3,
+        "title": "Заголовок 3",
+        "text": "Текст записки 3"
     }
-  ]
-  
+]
