@@ -1,5 +1,3 @@
-// вивід нотаток
-
 fetch('./notes.json')
     .then(response => response.json())
     .then(notes => {
@@ -28,6 +26,52 @@ fetch('./notes.json')
             newNote.appendChild(text);
             notesContainer.appendChild(newNote);
 
+            let modal = document.createElement('div');
+            let modalContent = document.createElement('div');
+            let modalTitleBlock = document.createElement('div');
+            let newTitle = document.createElement('p');
+            let span = document.createElement('span');
+            let modalForm = document.createElement('div');
+            let modalTextOne = document.createElement('p');
+            let modalTextTwo = document.createElement('p');
+            let textareaChangeTitle = document.createElement('textarea');
+            let textareaChangeText = document.createElement('textarea');
+            let buttonDiv = document.createElement('div');
+            let buttonSave = document.createElement('button');
+            modal.setAttribute('id', 'myModal');
+            modalContent.setAttribute('class', 'modal-content');
+            modalTitleBlock.setAttribute('class', 'modal-title-block');
+            newTitle.setAttribute('class', 'modal-title');
+            span.setAttribute('id', 'close');
+            newTitle.innerText = "Change note";
+            span.innerText = "X";
+            modalForm.setAttribute('class', 'modal-form');
+            modalTextOne.setAttribute('class', 'modal-text');
+            modalTextOne.innerText = "Change title of note";
+            textareaChangeTitle.setAttribute('id', 'changeTitle');
+            textareaChangeTitle.setAttribute('cols', '76');
+            textareaChangeTitle.setAttribute('rows', '4');
+            modalTextTwo.setAttribute('class', 'modal-text');
+            modalTextTwo.innerText = "Change text of note";
+            textareaChangeText.setAttribute('id', 'changeText');
+            textareaChangeText.setAttribute('cols', '76');
+            textareaChangeText.setAttribute('rows', '10');
+            buttonDiv.setAttribute('class', 'button-div');
+            buttonSave.setAttribute('id', 'button-save');
+            buttonSave.innerText = "Save";
+            document.body.appendChild(modal);
+            modal.appendChild(modalContent);
+            modalContent.appendChild(modalTitleBlock);
+            modalTitleBlock.appendChild(newTitle);
+            modalTitleBlock.appendChild(span);
+            modalContent.appendChild(modalForm);
+            modalForm.appendChild(modalTextOne);
+            modalForm.appendChild(textareaChangeTitle);
+            modalForm.appendChild(modalTextTwo);
+            modalForm.appendChild(textareaChangeText);
+            buttonDiv.appendChild(buttonSave)
+            modalForm.appendChild(buttonDiv);
+
             deleteIcon.addEventListener('click', function () {
                 fetch(`http://localhost:3000/notes/${item.id}`, {
                     method: 'DELETE',
@@ -35,6 +79,31 @@ fetch('./notes.json')
                     .then(data => {
                         console.log('Note deleted:', data);
                     })
-            })
+            });
+
+            changeIcon.addEventListener('click', function () {
+                modal.style.display = "block";
+                textareaChangeTitle.value = item.title;
+                textareaChangeText.value = item.text;
+            });
+
+            span.onclick = function () {
+                modal.style.display = "none";
+                textareaChangeTitle.value = "";
+                textareaChangeText.value = "";
+            };
+
+            buttonSave.addEventListener('click', function () {
+                if (textareaChangeTitle.value !== "" && textareaChangeText.value !== "") {
+                    fetch(`http://localhost:3000/notes/${item.id}`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ id: item.id, title: textareaChangeTitle.value, text: textareaChangeText.value })
+                    }).then(response => response.json())
+                        .then(data => {
+                            console.log('Note changed:', data);
+                        })
+                }
+            });
         })
     });
